@@ -8,5 +8,8 @@ node_modules/
 dist/
 *.log
 
+# runtime data — reset per environment
+server/expenses.json
+
 # os
 .DS_Store

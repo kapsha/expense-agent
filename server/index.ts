@@ -4,35 +4,27 @@ import { cors } from "hono/cors";
 import { readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { ReceiptResult } from "./contract.js";
+import { supervise } from "./agents/supervisor.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = new Hono();
 app.use("*", cors());
 
-const STUB: ReceiptResult = {
-  merchant: "DMart",
-  amount: 640,
-  currency: "INR",
-  amountInr: 640,
-  date: new Date().toISOString().slice(0, 10),
-  paymentMode: "card",
-  lineItems: [
-    { description: "Rice 5kg", amount: 320 },
-    { description: "Dal 1kg", amount: 140 },
-    { description: "Oil 1L", amount: 180 },
-  ],
-  category: "groceries",
-  budgetStatus: "warning",
-  recommendations: [
-    "Your last 2 grocery runs were at DMart — consider buying staples in bulk to stay under the ₹10,000 groceries budget.",
-  ],
-  usage: { inputTokens: 0, outputTokens: 0, costUsd: 0 },
-};
-
 app.post("/api/receipt", async (c) => {
-  return c.json(STUB);
+  const formData = await c.req.formData();
+  const file = formData.get("image");
+  if (!file || !(file instanceof File)) {
+    return c.json({ error: "Missing image field" }, 400);
+  }
+  const imageBuffer = Buffer.from(await file.arrayBuffer());
+  try {
+    const result = await supervise(imageBuffer);
+    return c.json(result);
+  } catch (err) {
+    console.error("Supervisor failed:", err instanceof Error ? err.message : err);
+    return c.json({ error: "Receipt processing failed" }, 500);
+  }
 });
 
 app.get("/api/budgets", (c) => {
@@ -43,7 +35,11 @@ app.get("/api/budgets", (c) => {
 });
 
 app.get("/api/usage", (c) => {
-  return c.json({ inputTokens: 0, outputTokens: 0, costUsd: 0 });
+  const expenses = JSON.parse(
+    readFileSync(join(__dirname, "expenses.json"), "utf-8")
+  ) as Array<{ amountInr: number }>;
+  const total = expenses.reduce((sum, e) => sum + e.amountInr, 0);
+  return c.json({ totalExpenses: expenses.length, totalAmountInr: total });
 });
 
 serve({ fetch: app.fetch, port: 3001 }, () => {
