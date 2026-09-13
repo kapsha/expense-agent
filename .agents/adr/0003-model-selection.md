@@ -1,0 +1,3 @@
+# Haiku 4.5 for Extractor and Classifier; Sonnet 4.6 for Advisor
+
+The Extractor and Classifier are structured-output tasks with deterministic schemas — extract fields from an image, map merchant/items to an enum. These don't require deep reasoning and Haiku 4.5 (`claude-haiku-4-5-20251001`) handles them reliably at the lowest cost ($1/$5 per 1M tokens). The Advisor generates merchant-aware, contextual recommendations by reasoning over spend history and budgets — this benefits from Sonnet 4.6's stronger reasoning (`claude-sonnet-4-6`, $3/$15 per 1M tokens). Using Sonnet across all three subagents would roughly triple the per-receipt cost with no quality improvement on the extraction and classification steps.

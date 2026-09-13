@@ -1,0 +1,3 @@
+# Node + Hono + TypeScript over Python + Flask
+
+AI demos commonly use Python, but this project uses TypeScript (Node + Hono backend, Vite + React frontend) for two reasons. First, the Claude Agent SDK is TypeScript-first — using it in its native language gives the clearest, most idiomatic integration and avoids any Python wrapper gaps. Second, a single language across the full stack (server, SPA, contract schema, evals) means the agent writing the code never context-switches between runtimes, and the Zod schema in `contract.ts` is shared across server validation and frontend types without a code-generation step.
