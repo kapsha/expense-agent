@@ -1,0 +1,26 @@
+{
+  "name": "expense-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:server": "tsx watch server/index.ts",
+    "dev:web": "vite --config web/vite.config.ts",
+    "build": "tsc -p server/tsconfig.json && vite build --config web/vite.config.ts",
+    "test": "vitest run",
+    "eval": "promptfoo eval -c evals/promptfooconfig.yaml"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "==0.125.0",
+    "@hono/node-server": "==2.1.1",
+    "hono": "==4.13.7",
+    "zod": "==4.6.4"
+  },
+  "devDependencies": {
+    "@types/node": "==26.5.1",
+    "tsx": "==4.23.13",
+    "typescript": "==7.0.2",
+    "vite": "==8.3.0",
+    "vitest": "==5.0.0"
+  }
+}
