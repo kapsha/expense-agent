@@ -16,7 +16,7 @@ jobs:
           cache: "npm"
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci && npm ci --prefix web
 
       - name: Verify (build + test + evals)
         run: make verify
