@@ -1,0 +1,8 @@
+{
+  "merchant": "Ola",
+  "lineItems": [
+    { "description": "City ride charges", "amount": 185 },
+    { "description": "Convenience fee", "amount": 15 }
+  ],
+  "expectedCategory": "transport"
+}

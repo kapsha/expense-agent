@@ -1,0 +1,9 @@
+{
+  "merchant": "Bastian Restaurant",
+  "lineItems": [
+    { "description": "Korean Fried Chicken", "amount": 950 },
+    { "description": "Paneer Tikka", "amount": 1200 },
+    { "description": "Watermelon Fizz", "amount": 420 }
+  ],
+  "expectedCategory": "food"
+}

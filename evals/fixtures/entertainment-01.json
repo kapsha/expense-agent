@@ -1,0 +1,8 @@
+{
+  "merchant": "PVR Cinemas",
+  "lineItems": [
+    { "description": "Movie ticket x2", "amount": 700 },
+    { "description": "Popcorn combo", "amount": 320 }
+  ],
+  "expectedCategory": "entertainment"
+}

@@ -1,0 +1,9 @@
+{
+  "merchant": "Swiggy",
+  "lineItems": [
+    { "description": "Butter Chicken", "amount": 380 },
+    { "description": "Naan x2", "amount": 80 },
+    { "description": "Delivery fee", "amount": 49 }
+  ],
+  "expectedCategory": "food"
+}

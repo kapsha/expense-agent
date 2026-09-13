@@ -1,0 +1,8 @@
+{
+  "merchant": "Decathlon",
+  "lineItems": [
+    { "description": "Running shoes", "amount": 2999 },
+    { "description": "Water bottle 1L", "amount": 499 }
+  ],
+  "expectedCategory": "other"
+}

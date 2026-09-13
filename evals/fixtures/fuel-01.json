@@ -1,0 +1,8 @@
+{
+  "merchant": "HP Petrol Pump",
+  "lineItems": [
+    { "description": "Petrol 20L", "amount": 1980 },
+    { "description": "Engine Oil 1L", "amount": 450 }
+  ],
+  "expectedCategory": "fuel"
+}

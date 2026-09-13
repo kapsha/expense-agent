@@ -1,0 +1,63 @@
+description: "Expense Agent — Classifier quality gate"
+
+providers:
+  - id: "file://provider.mjs"
+
+prompts:
+  - "classify"
+
+defaultTest:
+  assert:
+    - type: equals
+      value: "{{expectedCategory}}"
+
+tests:
+  - description: "DMart grocery run"
+    vars:
+      fixture: "file://fixtures/grocery-01.json"
+      expectedCategory: "groceries"
+
+  - description: "Bastian Restaurant dinner"
+    vars:
+      fixture: "file://fixtures/food-01.json"
+      expectedCategory: "food"
+
+  - description: "HP Petrol Pump refuel"
+    vars:
+      fixture: "file://fixtures/fuel-01.json"
+      expectedCategory: "fuel"
+
+  - description: "Ola city ride"
+    vars:
+      fixture: "file://fixtures/transport-01.json"
+      expectedCategory: "transport"
+
+  - description: "BSES electricity bill"
+    vars:
+      fixture: "file://fixtures/utility-01.json"
+      expectedCategory: "utility"
+
+  - description: "Apollo Pharmacy medicines"
+    vars:
+      fixture: "file://fixtures/medical-01.json"
+      expectedCategory: "medical"
+
+  - description: "PVR Cinemas movie"
+    vars:
+      fixture: "file://fixtures/entertainment-01.json"
+      expectedCategory: "entertainment"
+
+  - description: "Decathlon sports gear"
+    vars:
+      fixture: "file://fixtures/other-01.json"
+      expectedCategory: "other"
+
+  - description: "Swiggy food delivery"
+    vars:
+      fixture: "file://fixtures/food-02.json"
+      expectedCategory: "food"
+
+  - description: "Fortis Hospital consultation"
+    vars:
+      fixture: "file://fixtures/medical-02.json"
+      expectedCategory: "medical"
