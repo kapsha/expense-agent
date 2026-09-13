@@ -1,0 +1,8 @@
+{
+  "merchant": "BSES Rajdhani",
+  "lineItems": [
+    { "description": "Electricity bill Sep 2026", "amount": 2340 },
+    { "description": "Late payment fee", "amount": 50 }
+  ],
+  "expectedCategory": "utility"
+}

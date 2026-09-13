@@ -1,0 +1,8 @@
+{
+  "merchant": "Fortis Hospital",
+  "lineItems": [
+    { "description": "Consultation fee", "amount": 1200 },
+    { "description": "Blood test - CBC", "amount": 650 }
+  ],
+  "expectedCategory": "medical"
+}

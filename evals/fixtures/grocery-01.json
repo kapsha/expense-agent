@@ -1,0 +1,9 @@
+{
+  "merchant": "DMart",
+  "lineItems": [
+    { "description": "Rice 5kg", "amount": 320 },
+    { "description": "Dal 1kg", "amount": 140 },
+    { "description": "Oil 1L", "amount": 180 }
+  ],
+  "expectedCategory": "groceries"
+}

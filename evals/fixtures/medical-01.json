@@ -1,0 +1,9 @@
+{
+  "merchant": "Apollo Pharmacy",
+  "lineItems": [
+    { "description": "Paracetamol 500mg x10", "amount": 32 },
+    { "description": "Vitamin D3 60K x4", "amount": 180 },
+    { "description": "Cetirizine 10mg x10", "amount": 28 }
+  ],
+  "expectedCategory": "medical"
+}
