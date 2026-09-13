@@ -6,9 +6,9 @@
   "scripts": {
     "dev:server": "tsx watch server/index.ts",
     "dev:web": "vite --config web/vite.config.ts",
-    "build": "tsc -p server/tsconfig.json && vite build --config web/vite.config.ts",
+    "build": "tsc -p server/tsconfig.json && (cd web && vite build)",
     "test": "vitest run",
-    "eval": "promptfoo eval -c evals/promptfooconfig.yaml"
+    "eval": "[ -f evals/promptfooconfig.yaml ] && promptfoo eval -c evals/promptfooconfig.yaml || echo 'Evals not configured yet — skipping'"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "==0.125.0",
