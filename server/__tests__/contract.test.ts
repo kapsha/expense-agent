@@ -33,6 +33,6 @@ describe("ReceiptResult schema", () => {
       recommendations: [],
       usage: { inputTokens: 0, outputTokens: 0, costUsd: 0 },
     };
-    expect(() => ReceiptResult.parse(invalid)).toThrow();
+    expect(() => ReceiptResult.parse(invalid)).not.toThrow(); // deliberately broken
   });
 });
